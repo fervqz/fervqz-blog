@@ -1,0 +1,90 @@
+---
+import Logo from "./Logo.astro";
+import { Github, Laptop, Moon, Linkedin } from "lucide-astro";
+---
+
+<header class="mb-12 py-6">
+  <nav class="container mx-auto px-[10rem] flex">
+    <div class="flex-1">
+      <a href="/">
+        <Logo
+          class="hover:scale-105 transition-transform ease-out cursor-pointer"
+        />
+      </a>
+    </div>
+
+    <ul class="flex justify-center flex-1">
+      <li class="flex justify-center">
+        <a
+          href={import.meta.env.PUBLIC_URL_GITHUB}
+          target="_blank"
+          class="py-2 px-4 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:text-gray-900"
+        >
+          All Posts
+        </a>
+      </li>
+      <li class="flex justify-center">
+        <a
+          href={import.meta.env.PUBLIC_URL_GITHUB}
+          target="_blank"
+          class="py-2 px-4 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:text-gray-900"
+        >
+          Topics
+        </a>
+      </li>
+    </ul>
+
+    <ul class="flex-1 flex gap-2 justify-end">
+      <li class="flex justify-center">
+        <button
+          class="has-tooltip relative p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:scale-105 hover:text-gray-900 transition-transform ease-out"
+        >
+          <Moon size={24} />
+          <span
+            class="tooltip rounded-full shadow-lg py-1 px-2 text-sm absolute z-10 w-32 -bottom-8 -left-12 bg-slate-800 text-slate-100 text-center"
+            >Toggle theme</span
+          >
+        </button>
+      </li>
+      <li class="flex justify-center">
+        <a
+          href={import.meta.env.PUBLIC_URL_PERSONAL_WEB}
+          target="_blank"
+          class="has-tooltip relative p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:scale-105 hover:text-gray-900 transition-transform ease-out"
+        >
+          <Laptop size={24} />
+          <span
+            class="tooltip rounded-full shadow-lg py-1 px-6 text-sm absolute z-10 w-fit -bottom-8 -left-12 bg-slate-800 text-slate-100 text-center"
+            >fervasquez.com</span
+          >
+        </a>
+      </li>
+      <li class="flex justify-center">
+        <a
+          href={import.meta.env.PUBLIC_URL_LINKEDIN}
+          target="_blank"
+          class="has-tooltip relative p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:scale-105 hover:text-gray-900 transition-transform ease-out"
+        >
+          <Linkedin size={24} />
+          <span
+            class="tooltip rounded-full shadow-lg py-1 px-6 text-sm absolute z-10 w-fit -bottom-8 -left-12 bg-slate-800 text-slate-100 text-center"
+            >linkedin.com/in/fervqz</span
+          >
+        </a>
+      </li>
+      <li class="flex justify-center">
+        <a
+          href={import.meta.env.PUBLIC_URL_GITHUB}
+          target="_blank"
+          class="has-tooltip relative p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:scale-105 hover:text-gray-900 transition-transform ease-out"
+        >
+          <Github size={24} />
+          <span
+            class="tooltip rounded-full shadow-lg py-1 px-6 text-sm absolute z-10 w-fit -bottom-8 -left-12 bg-slate-800 text-slate-100 text-center"
+            >github.com/fervqz</span
+          >
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

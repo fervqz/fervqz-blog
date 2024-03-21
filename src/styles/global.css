@@ -1,0 +1,25 @@
+body {
+  font-family: "Red Hat Display Variable", sans-serif;
+  background: #f8fcff;
+  line-height: 24px;
+  letter-spacing: 1.5px;
+  color: #5d5d5d;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #212121;
+}
+
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}

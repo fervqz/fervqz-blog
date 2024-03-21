@@ -1,0 +1,34 @@
+---
+import { ArrowUp } from "lucide-astro";
+---
+
+<div
+  id="got-top-btn"
+  class="fixed right-8 bottom-8 flex justify-center items-center bg-primary text-slate-100 p-4 rounded-full shadow-lg opacity-0 transition-opacity hover:cursor-pointer hover:bg-primary-darker"
+>
+  <ArrowUp size={28} />
+</div>
+
+<script>
+  let lastKnownScrollPosition = 0;
+  let ticking = false;
+  const $goTopButton = document.querySelector("#got-top-btn");
+  $goTopButton.onclick = () =>
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      $goTopButton.classList.remove("opacity-0");
+      $goTopButton.classList.add("opacity-100");
+    } else {
+      $goTopButton.classList.add("opacity-0");
+      $goTopButton.classList.remove("opacity-100");
+    }
+  };
+
+  document.addEventListener("scroll", handleScroll);
+</script>

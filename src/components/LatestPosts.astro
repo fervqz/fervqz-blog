@@ -1,0 +1,33 @@
+<h2 class="pl-4 text-3xl font-bold">Latest Posts</h2>
+<ul class="flex flex-col">
+  {
+    Array.from(Array(4).keys()).map((post) => (
+      <li>
+        <a
+          href="posts/first-post"
+          class="flex gap-4 p-4 rounded-lg hover:bg-slate-100 hover:cursor-pointer hover:scale-[1.01] transition-transform ease-out"
+        >
+          <img
+            transition:name={`/img-${post + 1}.jpeg`}
+            class="h-40 aspect-square rounded-lg bg-contain bg-no-repeat"
+            src={`/img/img-${post + 1}.jpeg`}
+            alt=""
+            role="presentation"
+          />
+          <div class="flex flex-col gap-2 py-2">
+            <h4 class="font-bold text-xl text-primary">
+              Case of Study: Spotify UI, deisgn choices and improvements
+            </h4>
+            <p class="flex-1">
+              Lorem ipsum dolor sit amet consectetur. Sapien non etiam viverra
+              habitant diam sit diam. Faucibus et euismod tincidunt turpis.
+              Lorem ipsum dolor sit amet consectetur. Sapien non etiam viverra
+              habitant diam.
+            </p>
+            <p class="text-sm font-bold">March 20, 2024</p>
+          </div>
+        </a>
+      </li>
+    ))
+  }
+</ul>
