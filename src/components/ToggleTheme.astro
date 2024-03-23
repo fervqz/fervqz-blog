@@ -1,0 +1,63 @@
+---
+import { Moon, Sun } from "lucide-astro";
+import { $isDark } from "../stores/theme";
+
+const isDark = $isDark.get();
+---
+
+<div>
+  <button
+    id="moon-icon"
+    class=`${!isDark && 'hidden'} p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:scale-105 hover:text-gray-900 transition-transform ease-out`
+  >
+    <Moon size={24} />
+  </button>
+  <button
+    id="sun-icon"
+    class=`${isDark && 'hidden'} p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:scale-105 hover:text-gray-900 transition-transform ease-out`
+  >
+    <Sun size={24} />
+  </button>
+</div>
+
+<script>
+  import { $isDark, setIsDark } from "../stores/theme";
+
+  let isDark = $isDark.get();
+  const $switch = document.querySelector("#theme-switch") as HTMLElement;
+  const $thumb = document.querySelector("#thumb") as HTMLElement;
+  const $moon = document.querySelector("#moon-icon") as HTMLElement;
+  const $sun = document.querySelector("#sun-icon") as HTMLElement;
+
+  $isDark.subscribe((e) => {
+    isDark = e;
+  });
+
+  const handleTheme = (e) => {
+    // const rootElement = document.querySelector("html");
+    // rootElement.setQuery("data-theme", "light");
+
+    if (isDark) {
+      console.log("is DARK");
+      // Hide Sun
+      $sun.classList.add("hidden");
+      $sun.classList.remove("block");
+      // Show Moon
+      $moon.classList.remove("hidden");
+      $moon.classList.add("block");
+      setIsDark(false);
+    } else {
+      console.log("is LIGHT");
+      // Show Sun
+      $sun.classList.remove("hidden");
+      $sun.classList.add("block");
+      // Hide Moon
+      $moon.classList.add("hidden");
+      $moon.classList.remove("block");
+      setIsDark(true);
+    }
+  };
+
+  $moon.addEventListener("click", handleTheme);
+  $sun.addEventListener("click", handleTheme);
+</script>

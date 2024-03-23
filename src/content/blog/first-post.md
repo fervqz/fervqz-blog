@@ -1,8 +1,10 @@
 ---
 title: 'First post'
 description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
+date: 'Jul 08 2022'
 heroImage: '/img/img-1.jpeg'
+category: "tech"
+alternativeSlug: "first-post"
 ---
 
 <div class="w-full bg-blue-200 my-36 rounded-lg p-8">

@@ -1,10 +1,24 @@
+*::selection {
+  color: #f2f2f2;
+  background: black;
+}
+
 body {
   font-family: "Red Hat Display Variable", sans-serif;
-  background: #f8fcff;
+  background: white;
   line-height: 24px;
   letter-spacing: 1.5px;
   color: #5d5d5d;
   scroll-behavior: smooth;
+}
+
+strong {
+  color: black;
+}
+
+strong::selection {
+  color: white;
+  background: black;
 }
 
 h1,
@@ -14,6 +28,25 @@ h4,
 h5,
 h6 {
   color: #212121;
+}
+
+h1 {
+  font-size: 2.12rem;
+}
+h2 {
+  font-size: 1.87rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5 {
+  font-size: 1.12rem;
+}
+h6 {
+  font-size: 1rem;
 }
 
 .tooltip {

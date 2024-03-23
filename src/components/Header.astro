@@ -1,10 +1,13 @@
 ---
 import Logo from "./Logo.astro";
-import { Github, Laptop, Moon, Linkedin } from "lucide-astro";
+import { Github, Laptop, Linkedin } from "lucide-astro";
+import ToggleTheme from "../components/ToggleTheme.astro";
+
+const path = Astro.url.pathname;
 ---
 
 <header class="mb-12 py-6">
-  <nav class="container mx-auto px-[10rem] flex">
+  <nav class="container mx-auto px-2 md:px-[10rem] flex">
     <div class="flex-1">
       <a href="/">
         <Logo
@@ -13,20 +16,25 @@ import { Github, Laptop, Moon, Linkedin } from "lucide-astro";
       </a>
     </div>
 
-    <ul class="flex justify-center flex-1">
+    <ul class="hidden md:flex md:gap-2 justify-center flex-1 w-full">
       <li class="flex justify-center">
         <a
-          href={import.meta.env.PUBLIC_URL_GITHUB}
-          target="_blank"
-          class="py-2 px-4 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:text-gray-900"
+          href="/posts"
+          class={`
+          ${
+            path === "/posts"
+              ? "bg-primary text-white hover:bg-gray-800"
+              : "bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+          }
+          py-2 px-4 rounded-full hover:cursor-pointer
+          `}
         >
           All Posts
         </a>
       </li>
       <li class="flex justify-center">
         <a
-          href={import.meta.env.PUBLIC_URL_GITHUB}
-          target="_blank"
+          href="#"
           class="py-2 px-4 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:text-gray-900"
         >
           Topics
@@ -36,15 +44,7 @@ import { Github, Laptop, Moon, Linkedin } from "lucide-astro";
 
     <ul class="flex-1 flex gap-2 justify-end">
       <li class="flex justify-center">
-        <button
-          class="has-tooltip relative p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:cursor-pointer hover:scale-105 hover:text-gray-900 transition-transform ease-out"
-        >
-          <Moon size={24} />
-          <span
-            class="tooltip rounded-full shadow-lg py-1 px-2 text-sm absolute z-10 w-32 -bottom-8 -left-12 bg-slate-800 text-slate-100 text-center"
-            >Toggle theme</span
-          >
-        </button>
+        <ToggleTheme />
       </li>
       <li class="flex justify-center">
         <a

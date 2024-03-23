@@ -5,9 +5,10 @@ import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
+import { Calendar } from "lucide-astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 ---
 
@@ -18,22 +19,26 @@ const posts = (await getCollection("blog")).sort(
   </head>
   <body>
     <Header />
-    <main>
+    <main class="container my-12">
       <section>
-        <ul>
+        <ul class="grid grid-cols-3 gap-0">
           {
             posts.map((post) => (
-              <li>
+              <li class="p-4 hover:cursor-pointer hover:scale-[1.01] transition-transform hover:bg-gray-100 rounded-xl">
                 <a href={`/posts/${post.slug}/`}>
-                  <img
-                    width={720}
-                    height={360}
-                    src={post.data.heroImage}
-                    alt=""
+                  <div
+                    class="w-full aspect-square rounded-lg"
+                    style={`
+                        background: url(${post.data.heroImage});
+                        background-position: center;
+                        background-size: cover;
+                    `}
                   />
-                  <h4 class="title">{post.data.title}</h4>
-                  <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
+                  <h4 class="mt-2 font-bold text-lg">{post.data.title}</h4>
+                  <p>{post.data.description.slice(0, 50)}...</p>
+                  <p class="flex gap-2 items-center bg-blue-200 rounded-full w-fit py-2 px-3 text-xs font-bold text-blue-900 mt-4">
+                    <Calendar size={16} stroke-width={3} />
+                    <FormattedDate date={post.data.date} />
                   </p>
                 </a>
               </li>

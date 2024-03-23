@@ -6,8 +6,8 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#4663AC',
-				'primary-darker': '#3c5491'
+				primary: 'rgb(10 10 10)',
+				'primary-darker': 'black'
 			},
 			container: {
 				center: true,
