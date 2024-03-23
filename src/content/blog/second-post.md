@@ -1,7 +1,7 @@
 ---
 title: 'Second post'
 description: 'Lorem ipsum dolor sit amet'
-date: 'Jul 15 2022'
+pubDate: 'Jul 15 2022'
 heroImage: '/img/img-4.jpeg'
 category: "tech"
 alternativeSlug: "second-post"

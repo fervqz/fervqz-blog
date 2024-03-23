@@ -1,7 +1,7 @@
 ---
 title: 'Music Post'
 description: 'Lorem ipsum dolor sit amet'
-date: 'Jul 08 2022'
+pubDate: 'Jul 08 2022'
 heroImage: '/img/img-1.jpeg'
 category: "music"
 alternativeSlug: "music-post"

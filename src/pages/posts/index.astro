@@ -8,7 +8,7 @@ import FormattedDate from "../../components/FormattedDate.astro";
 import { Calendar } from "lucide-astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
@@ -38,7 +38,7 @@ const posts = (await getCollection("blog")).sort(
                   <p>{post.data.description.slice(0, 50)}...</p>
                   <p class="flex gap-2 items-center bg-blue-200 rounded-full w-fit py-2 px-3 text-xs font-bold text-blue-900 mt-4">
                     <Calendar size={16} stroke-width={3} />
-                    <FormattedDate date={post.data.date} />
+                    <FormattedDate pubDate={post.data.pubDate} />
                   </p>
                 </a>
               </li>
