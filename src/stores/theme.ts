@@ -2,7 +2,7 @@ import { atom } from 'nanostores'
 
 export const $isDark = atom<boolean>(false)
 
-export function setIsDark(newIsDark: Theme) {
+export function setIsDark(newIsDark: boolean) {
   $isDark.set(newIsDark);
 }
 

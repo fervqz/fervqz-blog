@@ -12,7 +12,8 @@ import { ArrowUp } from "lucide-astro";
 <script>
   let lastKnownScrollPosition = 0;
   let ticking = false;
-  const $goTopButton = document.querySelector("#got-top-btn");
+  const $goTopButton = document.querySelector("#got-top-btn") as HTMLElement;
+
   $goTopButton.onclick = () =>
     window.scrollTo({
       top: 0,
